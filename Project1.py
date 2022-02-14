@@ -10,6 +10,7 @@ prihlasovaci_udaje = {"bob": "123",
                       "liz": "pass123"
                       }
 
+
 # Proměné
 prihlasen = False
 cislo_int = 0

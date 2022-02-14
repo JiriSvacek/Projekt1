@@ -28,9 +28,8 @@ heslo = input("Zadej heslo: ")
 
 # Kontrola přihlašovacích údajů
 for prihlaseni in prihlasovaci_udaje:
-    if prihlaseni in jmeno:
-        if prihlasovaci_udaje.get(prihlaseni) == heslo:
-            prihlasen = True
+    if prihlaseni in jmeno and prihlasovaci_udaje.get(prihlaseni) == heslo:
+        prihlasen = True
         break
 
 if not prihlasen:

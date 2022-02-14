@@ -10,7 +10,6 @@ prihlasovaci_udaje = {"bob": "123",
                       "liz": "pass123"
                       }
 
-
 # Proměné
 prihlasen = False
 cislo_int = 0
@@ -77,7 +76,7 @@ for slovo in vyber:
     elif ciste.isnumeric():
         pocet_cisel += 1
         suma_cisel += int(ciste)
-    elif ciste[0] in "-" and ciste[1:].isnumeric():
+    elif ciste[0] == "-" and ciste[1:].isnumeric():
         pocet_cisel += 1
         suma_cisel -= int(ciste[1:])
 

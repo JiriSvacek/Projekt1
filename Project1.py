@@ -21,6 +21,12 @@ pocet_zacatek = 0
 suma_cisel = 0
 delky_slov = {}
 oddelovac = "-" * 40
+delka = 10
+pred_nadpis = "{:>3}| {:^"
+pred_delky = "{:>3}| {:<"
+za_nadpis = "s} |{:>3}"
+za_delky = "s} |{:>3}"
+dohromady = ""
 
 # Vyžádání jména a hesla
 jmeno = input("Zadej jméno: ")
@@ -79,8 +85,22 @@ for slovo in vyber:
         pocet_cisel += 1
         suma_cisel -= int(ciste[1:])
 
-serazeno = sorted(delky_slov.items())
 
+
+dohromady_nadpis = pred_nadpis + str(delka) + za_nadpis
+dohromady_delky = pred_delky + str(delka) + za_delky
+
+serazeno = sorted(delky_slov.items())
+for p, m in serazeno:
+    if not m < 10 and m > delka:
+        delka = m
+        if not delka % 2 == 0:
+            delka += 1
+
+dohromady_nadpis = pred_nadpis + str(delka) + za_nadpis
+dohromady_delky = pred_delky + str(delka) + za_delky
+
+print(serazeno)
 # Vypsání údajů
 print(oddelovac)
 print(f"""There are {pocet_slov} words in the selected text.
@@ -91,10 +111,10 @@ There are {pocet_cisel} numeric strings.
 The sum of all the numbers {suma_cisel}""")
 print(oddelovac)
 
-print('{:>3}| {:^10s} |{:>3}'.format("LEN", "OCCURENCES", "NR."))
+print(dohromady_nadpis.format("LEN", "OCCURENCES", "NR."))
 
 for p, m in serazeno:
     hvezdy = "*" * m
-    print('{:>3}| {:<10s} |{:>3}'.format(p, hvezdy, m))
+    print(dohromady_delky.format(p, hvezdy, m))
 
 print(oddelovac)

@@ -85,12 +85,8 @@ for slovo in vyber:
         pocet_cisel += 1
         suma_cisel -= int(ciste[1:])
 
-
-
-dohromady_nadpis = pred_nadpis + str(delka) + za_nadpis
-dohromady_delky = pred_delky + str(delka) + za_delky
-
 serazeno = sorted(delky_slov.items())
+
 for p, m in serazeno:
     if not m < 10 and m > delka:
         delka = m
